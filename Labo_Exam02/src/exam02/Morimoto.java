@@ -1,25 +1,32 @@
 package exam02;
 
-import java.awt.Button;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import com.sun.org.apache.xml.internal.resolver.helpers.PublicId;
+import net.miginfocom.swing.MigLayout;
 
 public class Morimoto extends JPanel implements ActionListener{
+	 JLabel l = new JLabel("あかさたな");
+	 JButton b = new JButton("赤");
 	public Morinoto(){
-		
-		JPanel p = new JPanel();
-		Container contentPane = getContentPane();
-	    contentPane.add(p, BorderLayout.CENTER);
-	    
-	    Button b = new Button("赤");
+		this.setLayout(new MigLayout("", "[grow]", "[grow]"));
+		//ラベル作成
+		l.setForeground(Color.BLACK);
+	    this.add(l);
+		//ボタン作成
+	     b = new JButton("赤");
 	    b.addActionListener(this);
 	    add(b);
 	    setSize(100,50);
-	    show();
+	    this.add(b);
 	}
 	public void actionPerfomed(ActionEvent e){
-		p.setColor(Color.RED);
+		l.setBackground(Color.RED);
 	}
+	
+}
